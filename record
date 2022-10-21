@@ -1,0 +1,240 @@
+<?php
+date_default_timezone_set('Asia/Tokyo');
+
+  if (isset($_GET['ym'])) {
+              $ym = $_GET['ym'];
+              $value = explode("-",$ym);
+              $year = $value[0];
+              $month = $value[1];
+                 } else {
+    $ym = date('Y-m');
+    $year = date('Y');
+    $month = date('m');
+}
+
+ public function create_calendar(Request $request)
+
+if (isset($_GET['ym'])) {
+              $ym = $_GET['ym'];
+              $value = explode("-",$ym);
+              $year = $value[0];
+              $month = $value[1];
+                 } else {
+       $ym = date('Y-m');
+       $year = date('Y');
+       $month = date('m');
+      }
+
+ for ($i = 1; $i < $last_day + 1; $i++){
+ $week = date("w", mktime(0, 0, 0, $month, $i, $year));
+ $weekjp_array = array('日', '月', '火', '水', '木', '金', '土');
+ $weekjp = $weekjp_array[$week];
+
+      
+     }
+$last_day = date("j", mktime(0, 0, 0, $month + 1, 0, $year));
+
+$timestamp = strtotime($ym . '-01');
+$html_title = date('Y年n月', $timestamp);
+$prev = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
+$next = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
+?>
+<h3 class="mb-5"><a href="?ym=<?php echo $prev; ?>">&lt;</a> <?php echo $html_title; ?> <a href="?ym=<?php echo $next; ?>">&gt;</a></h3>
+<
+?>table class='table table-bordered'><tr align='center'><th>曜日</th><th>日付</th><th>メニュー</th></tr>
+<?php
+
+for ($i = 1; $i < $last_day + 1; $i++){
+$week = date("w", mktime(0, 0, 0, $month, $i, $year));
+$weekjp_array = array('日', '月', '火', '水', '木', '金', '土');
+$weekjp = $weekjp_array[$week];
+
+echo "<tr align='center'>\n<th>".$weekjp."</th><td>".$i."</td>\n<td></td>\n</tr>\n";
+}
+</table>
+
+$last_day = date("j", mktime(0, 0, 0, $month + 1, 0, $year));
+$html_title= strtotime($ym . '-01');
+$html_title = date('Y年n月', $timestamp);
+$prev = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
+$next = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
+
+if (isset($_GET['ym'])) {
+              $ym = $_GET['ym'];
+              $value = explode("-",$ym);
+              $year = $value[0];
+              $month = $value[1];
+                 } else {
+       $ym = date('Y-m');
+       $year = date('Y');
+       $month = date('m');
+      };
+      
+       date_default_timezone_set('Asia/Tokyo');
+       
+       uest $requestReq
+       Route::get('myapp/home', 'App\Http\Controllers\Admin\MyappController@create_calendar'); 
+       Route::get('myapp/home', 'App\Http\Controllers\Admin\MyappController@create_calendar');
+       
+               <div class="col-md-8">
+               </div>
+                 <div class="list-news col-md-12 mx-auto">
+                  <div class="row">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th width="20%">ID</th>
+                                <th width="40%">メニュー</th>
+                                <th width="20%">回数</th>
+                                 <th width="20%">セット</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($posts as $menu)
+                                <tr>
+                                    <th>{{ $menu->id }}</th>
+                                    <td>{{ Str::limit($menu->menu, 100) }}</td>
+                                    <td>{{ Str::limit($menu->reps, 50) }}</td>
+                                    <td>{{ Str::limit($menu->sets, 50) }}</td>
+                                     
+                                </tr>
+                            @endforeach
+                        </tbody>
+                         <td>{{ Str::limit($menu->reps, 50) }}</td>
+                   <td>{{ Str::limit($menu->sets, 50) }}</td>
+                   １　return view('フォームがあるビュー ', ['hoge' => Menu::all()]);
+                   2
+<form action="送信先のアクション" method="post">
+  @foreach($hoge as $menu)
+      <input type="checkbox" name="menu_ids[]" value="{{ $menu->id }}"> : {{ $menu->menu }}
+  @endforeach
+  <input type="submit" value="送信">    
+</form>
+3
+public fuction hoge_action(Request $request){
+    foreach($request->menu_ids as $menu_id){
+        $menu = Menu::find($menu_id);
+        $record = new RecordMenu;
+        $record->menu = $menu->menu;
+        $record->sets = $menu->sets;
+        .
+        .
+        $record->save();
+
+    }
+    .
+    .
+}
+
+
+2 件の返信
+最終返信: 1日前スレッドを表示する
+チェックマーク_緑
+両目
+バンザイ
+リアクションする
+返信
+
+メンター
+
+{$menu->weight}
+{{$menu->reps}}
+{{$menu->sets}}
+<input type="hidden" name="weight" value="{{$menu->weight}}">
+             <input type="hidden" name="reps" value="{{$menu->reps}}">
+             <input type="hidden" name="sets" value="{{$menu->sets}}">
+             <input type="text" name="weight" value="{{$menu->weight}}">
+                  <input type="text" name="reps" value="{{$menu->reps}}">
+                   <input type="text" name="sets" value="{{$menu->sets}}">
+                   
+                   <input type="hidden" name="event_id" value="event_id"> 
+                   
+                      public function send_posts(Request $request)
+  {
+      $cond_events = $request->cond_events;
+      if ($cond_events != '') {
+          
+          $posts = Event::where('eventdetails', $cond_events)->get();
+      } else {
+          
+          $posts = Event::all();
+          
+      
+    }
+   // dd($cond_menu);
+     // return view('admin.myapp.index', ['posts' => $posts, 'cond_memu' => $cond_menu]);
+       return view('admin.myapp.eventdetail', ['posts' => $posts]);
+  }
+  
+   public function send_posts()
+  {
+      $cond_events = $request->cond_events;
+      if ($cond_events != '') {
+          
+          $posts = Event::where('eventdetails', $cond_events)->get();
+      } else {
+          
+          $posts = Event::all();
+        }
+     
+      return view('admin.myapp.event_name', ['posts' => $posts]);
+}
+ public function get_day(Request $request)
+//   {
+//     date_default_timezone_set('Asia/Tokyo'); 
+//     if (isset($_GET['ym'])) {
+//               $ym = $_GET['ym'];
+//               $value = explode("-",$ym);
+//               $year = $value[0];
+//               $month = $value[1];
+//                  } else {
+//       $ym = date('Y-m');
+//       $year = date('Y');
+//       $month = date('m');
+//       };
+//       $last_day = date("j", mktime(0, 0, 0, $month + 1, 0, $year));
+//       $timestamp = strtotime($ym . '-01');
+//       $html_title = date('Y年n月', $timestamp);
+//       $prev = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
+//       dd($prev);
+//       $next = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
+//       return view('admin.myapp.home',compact('prev','html_title','next',));
+//   }
+    public function index(Request $request)
+  {
+      $cond_events = $request->cond_events;
+      if ($cond_events != '') {
+          
+          $posts = Event::where('eventdetails', $cond_events)->get();
+      } else {
+          
+          $posts = Events::all();
+          
+      
+    }
+   // dd($cond_menu);
+     // return view('admin.myapp.index', ['posts' => $posts, 'cond_memu' => $cond_menu]);
+       return view('admin.myapp.event_name', ['posts' => $posts]);
+  }
+    public function event_name(Request $request)
+  {
+      $this->validate($request,Event::$rules);
+
+      $events = new Event;
+      $form = $request->all();
+      
+       unset($form['_token']);
+       
+       $events->fill($form);
+       $events->save();
+
+      
+      return view('admin/myapp/event_name');
+   }
+    ['posts' => $posts]
+       public function add_event_name()
+{
+      return view('admin.myapp.event_name');
+}  
+    <form action="{{ action('App\Http\Controllers\Admin\MyappController@event_name') }}" method="post" enctype="multipart/form-data">
+   
