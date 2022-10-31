@@ -19,11 +19,12 @@
                         <label class="col-md-2">種目</label>
                         <div class="col-md-4">
                             
-                             <select class="form-control" name="events_ids[]">
-                             @foreach( $posts as $eventdetails)
-                              <option value="{{ $eventdetails->id }}">{{ $eventdetails->name}}></option>
-                              @endforeach
-                              </select>
+                             <select class="form-control" name="event_id">
+                             @foreach( $events as $eventdetails)
+                                <option value="{{ $eventdetails->id }}">{{ $eventdetails->name}}></option>
+                             @endforeach
+                             </select>
+                             <a href="https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/event_name">その他の種目の登録はこちら</a>
                         </div>
                     </div>
                     
@@ -48,6 +49,9 @@
                    @csrf
                     <input type="submit" class="btn btn-primary" value="追加">
                 </form>
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/home'"value="カレンダーに戻る">
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/event_name'"value="種目名を登録">
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/record_menu'"value="カレンダーに記録する">
             </div>
         </div>
     </div>

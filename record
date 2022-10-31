@@ -237,4 +237,69 @@ public fuction hoge_action(Request $request){
       return view('admin.myapp.event_name');
 }  
     <form action="{{ action('App\Http\Controllers\Admin\MyappController@event_name') }}" method="post" enctype="multipart/form-data">
+        public function event_name(Request $request)
+   {   
+       $this->validate($request,Event::$rules);
+       $events = new Event;
+       $form = $request->all();
+       unset($form['_token']);
+       $events->fill($form);
+       $events->save();
+       
+       return redirect('admin/myapp/event_name');
+   }   
    
+   
+   <a href="{{ action('App\Http\Controllers\Admin\MyappController@add') }}" role="button" class="btn btn-primary">種目名登録</a>　ボタンで、コントローラーにつなぐ方法
+    <div class="col-md-8">
+              <a href="{{ action('App\Http\Controllers\Admin\MyappController@index') }}" role="button" class="btn btn-primary">一覧 </a> 
+     </div>　　一覧ページに飛ぶ
+     
+     <buttan onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/eventdetail'">メニューを作る</buttan>
+     <buttan onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/home'">カレンダーに戻る</buttan>
+     
+         <input type="hidden" name="weight" value="{{$eventdetails->weight}}">
+             <input type="hidden" name="reps" value="{{$eventdetails->reps}}">
+             <input type="hidden" name="sets" value="{{$eventdetails->sets}}">
+             <input type="hidden" name="date" value="{{$eventdetails->date}}">  record_menu bladeにあった奴
+             
+                 <td>{{$eventdetails->weight}}"</td>
+                  <td>{{$eventdetails->reps}}</td>
+                   <td>{{$eventdetails->sets}}</td>
+            
+             @foreach($weekjp as $i => $week)
+        <tr align='center'><th>{{$week}}</th><td>{{$i + 1}}</td><td></td></tr>
+            @endforeach  homebladeに使ってたやつ
+            
+             //  public function display(){
+    //      $record = Record::latest('date')->get();//新しい順に並べ替えて取得
+    //      $calender = //にカレンダーの日付を取得して入れる
+    //      if($calender == $record)
+    //      {
+    //       //同じなら、その日のデータを取得して、入れる  
+    //      }
+    //      else{
+    //          //それ以外なら、次の日付をチェックする
+    //      }
+    //      //dd($dispay);
+    //     // $dispay = Record::find($request->records_id);
+    //  }
+    // public function edit(Request $request)
+    // {
+    //     $event = Event::find($request->id);
+    //     if (empty($event)) {
+    //         abort(404);    
+    //     }
+    //   return view('admin.myapp.edit', ['event_form' => $events]);
+    // }
+    
+    //$events = $request->events;
+        //$events = Event::where('user_id')->get();
+        
+          //foreach($request->menu_ids as $menu_id){
+       // $menu = Menu::find($menu_id);
+        //$record = new Record_menu;
+        //$record->menu = $menu->menu;
+        
+        <div class="col-md-4">
+           </div>

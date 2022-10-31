@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Event extends Model
 {
@@ -12,6 +13,13 @@ class Event extends Model
     
     protected $guarded = array('id');
     public static $rules = array(
-        'name' => 'required',
+        'name' => 'required'
     );
+      public function user(){
+         return $this->belongsTo(User::class); 
+      }
+    
 }
+
+
+ 

@@ -20,21 +20,18 @@
                </tr>
               </thead> 
                 
-                 @foreach( $posts as $eventdetails)
+                 @foreach( $eventdetails as $eventdetail)
                 
                  <tr>
-                  <th>{{ $eventdetails->id }}</th>
-                   <td> <input type="checkbox" name="events_ids[]" value="{{ $eventdetails->id }}"> : {{ $eventdetails->name}}</td>
-                   <td>{{$eventdetails->weight}}"</td>
-                  <td>{{$eventdetails->reps}}</td>
-                   <td>{{$eventdetails->sets}}</td>
+                   <td> <input type="checkbox" name="eventdetail_ids[]" value="{{ $eventdetail->id }}"></td> 
+                   <td>{{ $eventdetail->event->name}}</td> 
+                   <td>{{ $eventdetail->weight}}</td> 
+                   <td>{{ $eventdetail->reps}}</td> 
+                   <td>{{ $eventdetail->sets}} </td>
                  </tr>
                  @endforeach
            
-                 <input type="hidden" name="weight" value="{{$eventdetails->weight}}">
-             <input type="hidden" name="reps" value="{{$eventdetails->reps}}">
-             <input type="hidden" name="sets" value="{{$eventdetails->sets}}">
-             <input type="hidden" name="date" value="{{$eventdetails->date}}">      
+                  
               </table>
                <div class="col-md-8">
                 @csrf
@@ -42,7 +39,9 @@
                 <input type="submit" class="btn btn-primary" value="記録">
                  @csrf
                 </form>
-          
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/home'"value="カレンダーに戻る">
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/event_name'"value="種目名を登録">
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/eventdetail'"value="メニューを作る">
                 </div>        
                
                

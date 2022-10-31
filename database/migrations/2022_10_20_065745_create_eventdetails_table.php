@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('eventdetails', function (Blueprint $table) {
            $table->increments('id');
+           $table->integer('user_id');
            $table->integer('event_id');
            $table->integer('weight');
            $table->integer('reps');
