@@ -44,6 +44,17 @@ body {
 .form-group row{
   margin: 1em 0
 }
+.col-md-2{
+  margin-top: 10px;
+}
+.input button{
+  padding-top: 10px;
+  margin-top: 10px
+}
+form{
+  margin-bottom: 20px;
+  
+}
 
 
  
