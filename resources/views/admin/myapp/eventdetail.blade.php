@@ -4,7 +4,7 @@
     <div align="center" class="container">
         <div class="row">
             <div class="col-md-11 mx-auto">
-                <h2>メニューの新規登録</h2>
+                <h1>メニューの新規登録</h1>
                 <form action="{{ action('App\Http\Controllers\Admin\MyappController@eventdetail') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
@@ -45,7 +45,6 @@
                             <input type="text" class="form-control" name="sets" value="{{ old('sets') }}">
                         </div>
                     </div>
-                    
                     @csrf
                     <div align="center" class="submit">
                         <input type="submit" class="btn btn-primary" value="追加">

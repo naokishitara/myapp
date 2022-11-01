@@ -1,10 +1,9 @@
 @extends('layouts.admin')
-@section('title', 'メニューの新規登録')
+@section('title', '種目名の登録')
 @section('content')
-    <div class="container">
+    <div align="center" class="container">
         <div class="row">
-            
-                <h2>種目名の登録</h2>
+                <h1>種目名の登録</h1>
                 <form action= "{{ action('App\Http\Controllers\Admin\MyappController@event_name')}}" method="post" enctype="multipart/form-data">
             @if (count($errors) > 0)
                         <ul>
