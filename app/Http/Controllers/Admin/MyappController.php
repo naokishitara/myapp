@@ -20,7 +20,7 @@ class MyappController extends Controller
 }
     public function add_event_name()
     {
-        return view('admin.myapp.event_name');
+        return view('admin.myapp.event');
 }
 
 
@@ -151,14 +151,14 @@ class MyappController extends Controller
         //$events = User::get(['id']);
         $events = new Event;
         $events->user_id = Auth::id();
-         $eventdetails = Eventdetail::whereUser_id(1)->get();
+         
         $form = $request->all();
         
         unset($form['_token']);
        
         $events->fill($form);
         $events->save();
-         return redirect('admin/myapp/event_name');
+         return redirect('admin/myapp/event');
     }
    
    

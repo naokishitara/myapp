@@ -303,3 +303,9 @@ public fuction hoge_action(Request $request){
         
         <div class="col-md-4">
            </div>
+           
+           $eventdetails = Eventdetail::whereUser_id(1)->get();
+           
+           <div class="col-md-8 mx-auto">
+           
+           container
