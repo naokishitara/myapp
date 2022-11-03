@@ -16,7 +16,7 @@ class MyappController extends Controller
 {
     public function home()
     {
-        return view('admin.myapp.calendar');
+        return view('admin.myapp.main');
 }
     public function add_event_name()
     {
