@@ -24,7 +24,7 @@
                              @endforeach
                              </select>
                        
-                             <div class="link"><a href="https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/event_name">その他の種目の登録はこちら</a></div>
+                             <div class="link"><a href="https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/event">その他の種目の登録はこちら</a></div>
                          </div>
                    </div>
                    <div class="form-group">
@@ -50,9 +50,9 @@
                         <input type="submit" class="btn btn-primary" value="追加">
                    </div>
                 </form>
-                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/main'"value="カレンダーに戻る">
                 <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/event'"value="種目名を登録">
-                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/record_menu'"value="カレンダーに記録する">
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/record_menu'"value="カレンダーに記録">
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/main'"value="カレンダーに戻る">
             </div>
         </div>
     </div>

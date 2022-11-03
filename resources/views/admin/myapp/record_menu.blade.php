@@ -3,12 +3,12 @@
 @section('content')
     <div align="center" class="container">
         <div class="row">
-         <div class="col-md-11 mx-auto">
+         <div class="col-md-12 mx-auto">
             <h2>メニューを記録しよう</h2>
-         <div align="center" class="row">
-             <div class="col-md-8">
+         <div class="row">
+             <div class="col-md-12">
                  <form action="{{ action('App\Http\Controllers\Admin\MyappController@record_menu') }}" method="post">
-                     <table class="table table-dark">
+                     <table align="center"class="table table-dark">
                      <thead>
                      <tr>
                      <th width="10%">ID</th>
@@ -29,12 +29,12 @@
                     </table>
                  　　<div class="col-md-8">
                 @csrf
-              　<input type="submit" class="btn btn-primary" value="記録">
+              　<input type="submit" class="btn btn-primary" value="カレンダーに記録">
                 @csrf
                 </form>
-                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/main'"value="カレンダーに戻る">
                 <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/event'"value="種目名を登録">
                 <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/eventdetail'"value="メニューを作る">
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/main'"value="カレンダーに戻る">
                 </div>
              </div>
 　       </div>

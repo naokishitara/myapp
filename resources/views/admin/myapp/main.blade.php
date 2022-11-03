@@ -7,7 +7,7 @@
      <div class="col-md-8 mx-auto">
         <h1>筋トレlife</h1>
          @csrf
-        <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/event_name'"value="種目名登録">
+        <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/event'"value="種目名登録">
         <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/eventdetail'"value="メニュー登録">
         <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/record_menu'"value="カレンダーに記録">
         <div class="row">
@@ -23,7 +23,7 @@
             <td class="character-color">{{$i+1}}</td>
             <td class="character-color">
                 @foreach($day['records'] as $record)
-                    <p>{{$record}}</p>
+                     <p> {{$record}}</p>
                 @endforeach
             </td>
             </tr>
@@ -33,5 +33,5 @@
       </div>
      </div>
     </div>        
-   
+   </div>
  </html>

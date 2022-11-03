@@ -50,23 +50,10 @@ class MyappController extends Controller
        return view('admin.myapp.eventdetail', ['events' => $events]);
     }
     
-    public function update(Request $request)
-    {
-        $this->validate($request, Event::$rules);
-        $events = Event::find($request->id);
-        $events_form = $request->all();
-        unset($event_form['_token']);
-        $events->fill($events_form);
-        $events->save();
-
-        return redirect('admin/event_name');
-    }
+    
 
     public function create_calendar (Request $request)
     {
-        
-        
-        
         if (isset($_GET['ym'])) {  //中身があるか確認して、あったら上、無かったら、else以下を返す。
             $ym = $_GET['ym'];
             $value = explode("-",$ym); //yとｍを２つに分ける
@@ -79,54 +66,46 @@ class MyappController extends Controller
         }; 
 
         list($html_title,$prev,$next) = $this->get_day($ym);
-        
         $records = Auth::user()->records()->whereYear('date',$year )->whereMonth('date', $month)->get();
-       
         $day_of_records = [];
         foreach ($records as $record) {
-            $day_num =date('d',strtotime($record->date));//$recordの日付の数値を取り出す*/
+            $day_num =date('j',strtotime($record->date));//$recordの日付の数値を取り出す*/
             $day_of_records[$day_num][] = $record->eventdetail->event->name.$record->eventdetail->weight.'キロ'.$record->eventdetail->reps.'回'.$record->eventdetail->sets.'セット';
         }
-        $last_day = date("j", mktime(0, 0, 0, $month + 1, 0, $year));
+      
+        $last_day = date("j", mktime(0, 0, 0, $month + 1, 0, $year));//dd($last_day);
         $days = [];
         $weekjp_array = array('日', '月', '火', '水', '木', '金', '土');
         for ($i = 1; $i < $last_day + 1; $i++)
         {
-            $week = date("w", mktime(0, 0, 0, $month, $i, $year));
-
-            $day = [];
+            $week = date("w", mktime(0, 0, 0, $month, $i , $year));//dd($week);
+           //dd($day_of_records);
+            $day = [];//日付に一致したメニューを入れえておくための連想配列を作る
             //$dat['day_num'] = $i;
-            $day_of_week = $weekjp_array[$week];
-            if(array_key_exists($i,$day_of_records)){
-                //dd($day_of_records[$i]);
+            $day_of_week = $weekjp_array[$week];//dd($day_of_week);
+            if(array_key_exists($i,$day_of_records)){//日付と、同じ日付データを持ったメニューをチェックする
                 $days[] = ['day_of_week'=> $day_of_week,'records'=> $day_of_records[$i]];
             }else{
-                $days[] = ['day_of_week'=> $weekjp_array[$week],'records'=> []];//値のもたせかた　変数の後ろに[]
+                $days[] = ['day_of_week'=> $weekjp_array[$week],'records'=> []];
             }
+            //dd($days);
         }
-        //dd($days);
         return view('admin.myapp.main',compact('html_title','prev','next','days'));
     }
     private function get_day($ym)
     {
         date_default_timezone_set('Asia/Tokyo'); 
-   
         $timestamp = strtotime($ym . '-01');
         $html_title = date('Y年n月', $timestamp);
         $prev = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
-      
         $next = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)+1, 1, date('Y', $timestamp)));
-     
         return [$html_title,$prev,$next];
     }
- 
  
     public function get_eventdetails(Request $request)
     {
        $eventdetails = Auth::user()->eventdetails;//user_idが同じデータを取得して居れる
         return view('admin.myapp.record_menu', ['eventdetails' => $eventdetails]);
-               
-        
     }
     public function record_menu(Request $request)
     {
@@ -139,7 +118,6 @@ class MyappController extends Controller
         $record->eventdetail_id = $id;
         $record->date = Carbon::now();
         $record->save();
-        
         }
         return redirect('admin/myapp/record_menu');
     }

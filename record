@@ -309,3 +309,19 @@ public fuction hoge_action(Request $request){
            <div class="col-md-8 mx-auto">
            
            container
+           
+           public function update(Request $request)
+    {
+        $this->validate($request, Event::$rules);
+        $events = Event::find($request->id);
+        $events_form = $request->all();
+        unset($event_form['_token']);
+        $events->fill($events_form);
+        $events->save();
+
+        return redirect('admin/event_name');
+    }
+    
+Route::get('myapp/edit', 'App\Http\Controllers\Admin\MyappController@edit')->middleware('auth');
+Route::post('myapp/edit', 'App\Http\Controllers\Admin\MyappController@update')->middleware('auth');
+//Route::get('myapp/index', 'App\Http\Controllers\Admin\MyappController@index');
