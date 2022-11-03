@@ -11,7 +11,7 @@
 */
 
 Route::get('/', function () {
-    return view('myapp/main');
+    return view('admin/myapp/main');
 });
 Route::group(['prefix' => 'admin'], function() {
 Route::get('myapp/main', 'App\Http\Controllers\Admin\MyappController@home')->middleware('auth');
