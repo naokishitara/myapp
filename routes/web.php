@@ -24,6 +24,8 @@ Route::post('myapp/record_menu', 'App\Http\Controllers\Admin\MyappController@rec
 Route::get('myapp/event', 'App\Http\Controllers\Admin\MyappController@add_event_name')->middleware('auth');
 Route::post('myapp/event', 'App\Http\Controllers\Admin\MyappController@event_name')->middleware('auth');
 Route::get('myapp/eventdetail', 'App\Http\Controllers\Admin\MyappController@get_eventdetail')->middleware('auth');
+Route::get('/','App\Http\Controllers\Admin\MyappController@home')->middleware('auth');
+
 
 });
 
