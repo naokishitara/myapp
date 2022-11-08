@@ -26,9 +26,9 @@
                          </div>
                 </form>
                 <div class="inline-block=btn">
-                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/eventdetail'" value="メニューを作る">
-                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/record_menu'" value="カレンダーに記録">
-                <input type="button"  class="btn btn-primary" onclick="location.href='https://cb8773d8e47445c68b8cdd1855a50870.vfs.cloud9.us-east-2.amazonaws.com/admin/myapp/main'"value="カレンダーに戻る">
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://shielded-depths-42794.herokuapp.com/admin/myapp/eventdetail'" value="メニューを作る">
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://shielded-depths-42794.herokuapp.com/admin/myapp/record_menu'" value="カレンダーに記録">
+                <input type="button"  class="btn btn-primary" onclick="location.href='https://shielded-depths-42794.herokuapp.com/admin/myapp/main'"value="カレンダーに戻る">
                 </div>
                
            </div>  
