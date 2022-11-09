@@ -8,6 +8,13 @@
          <div class="row">
              <div class="col-md-12">
                  <form action="{{ action('App\Http\Controllers\Admin\MyappController@record_menu') }}" method="post">
+                      @if (count($errors) > 0)
+                        <ul>
+                            @foreach($errors->all() as $e)
+                                <li>{{ $e }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                      <table align="center"class="table table-dark">
                      <thead>
                      <tr>

@@ -10,7 +10,6 @@ class Event extends Model
 {
     use HasFactory;
     protected $table = 'events';
-    
     protected $guarded = array('id');
     public static $rules = array(
         'name' => 'required'

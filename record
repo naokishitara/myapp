@@ -325,3 +325,8 @@ public fuction hoge_action(Request $request){
 Route::get('myapp/edit', 'App\Http\Controllers\Admin\MyappController@edit')->middleware('auth');
 Route::post('myapp/edit', 'App\Http\Controllers\Admin\MyappController@update')->middleware('auth');
 //Route::get('myapp/index', 'App\Http\Controllers\Admin\MyappController@index');
+
+//User::with('id')->get();
+        //$events = User::get(['id']);
+        
+        //$records->eventdetails = $form->id;

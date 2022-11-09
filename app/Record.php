@@ -10,6 +10,9 @@ class Record extends Model
     use HasFactory;
     public $timestamps = false;
     protected $guarded = array('id');
+    public static $rules = array(
+        'name' => 'required'
+    );
     public function eventdetail(){
         return $this->belongsTo(Eventdetail::class);
     }

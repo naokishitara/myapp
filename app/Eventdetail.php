@@ -11,6 +11,7 @@ class Eventdetail extends Model
     
     protected $guarded = array('id');
     public static $rules = array(
+        'event_id' => 'required',
         'weight' => 'required',
         'reps' => 'required',
         'sets' => 'required',

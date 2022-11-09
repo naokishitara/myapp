@@ -104,43 +104,35 @@ class MyappController extends Controller
  
     public function get_eventdetails(Request $request)
     {
-       $eventdetails = Auth::user()->eventdetails;//user_idが同じデータを取得して居れる
+       $eventdetails = Auth::user()->eventdetails;//user_idが同じデータを取得していいる
         return view('admin.myapp.record_menu', ['eventdetails' => $eventdetails]);
     }
     public function record_menu(Request $request)
     {
-        $form = $request->all();
-        unset($form['_token']);
-        //$records->eventdetails = $form->id;
-        foreach($request->eventdetail_ids as $id ){
-        $record = new Record;
-        $record -> user_id = auth()->id();
-        $record->eventdetail_id = $id;
-        $record->date = Carbon::now();
-        $record->save();
+        if($request->eventdetail_ids != null){
+            foreach($request->eventdetail_ids as $id ){
+                $record = new Record;
+                $record -> user_id = auth()->id();
+                $record->eventdetail_id = $id;
+                $record->date = Carbon::now();
+                $record->save();
+            }
         }
         return redirect('admin/myapp/record_menu');
     }
     public function event_name(Request $request)
     {    
         $this->validate($request,Event::$rules);
-       
-        //User::with('id')->get();
-        //$events = User::get(['id']);
         $events = new Event;
         $events->user_id = Auth::id();
-         
         $form = $request->all();
-        
         unset($form['_token']);
-       
         $events->fill($form);
         $events->save();
-         return redirect('admin/myapp/event');
+        return redirect('admin/myapp/event');
     }
    
    
-    
 }
     
    
